@@ -22,3 +22,7 @@ Product page: https://sjgant80-hub.github.io/fallestateonboard/
 - The sanctions answer says to report a sanctions match to the NCA. Check the current reporting route (sanctions reporting generally goes to OFSI; suspicious activity reports go to the NCA) before you rely on that sentence.
 - The score is additive and fixed. It does not replace a risk assessment of your business or of a transaction.
 - The rules-based answers are short summaries as at November 2026; the law changes.
+- The AML score has not been measured against real outcomes (for example, which clients later raised suspicion). It is a fixed additive heuristic.
+- Content is as at 17 November 2026 (the AML threshold and the deposit rules were checked that day). Law changes land on the FallEstateOnboard page first; this SDK's weekly parity check then fails until it carries them, so it cannot quietly fall behind the page.
+- Scope: UK estate and letting agents; the deposit and tenancy answers are for England (Wales and Scotland have their own regimes). Text in English.
+- No third-party certification or audit. The evidence is the public CI record: every push runs the tests, the mutation gate and the parity check where anyone can read the result.
