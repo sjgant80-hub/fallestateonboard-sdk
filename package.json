@@ -1,24 +1,39 @@
 {
   "name": "@ai-native-solutions/fallestateonboard-sdk",
-  "version": "1.0.0",
-  "description": "fallestateonboard SDK · sovereign single-file library extracted from fallestateonboard/index.html",
+  "version": "1.1.0",
+  "description": "The FallEstateOnboard checks for UK estate and letting agents as a JavaScript library: the AML risk heuristic, onboarding steps, document and Right to Rent tables, and 10 rules-based answers. MIT, no dependencies, no network.",
   "type": "module",
   "main": "src/index.js",
-  "types": "src/index.d.ts",
-  "files": ["src", "docs", "README.md", "LICENSE"],
-  "scripts": {
-    "test": "node --test test/",
-    "smoke": "node examples/smoke.js"
+  "exports": {
+    ".": "./src/index.js"
   },
-  "keywords": ["fallestateonboard", "sdk", "sovereign", "ai-native-solutions"],
-  "author": "AI-Native Solutions",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/onboard.test.js",
+    "example": "node examples/basic.js",
+    "parity": "node scripts/parity.mjs"
+  },
+  "keywords": [
+    "estate-agent",
+    "letting-agent",
+    "aml",
+    "right-to-rent",
+    "uk",
+    "onboarding",
+    "sdk"
+  ],
+  "author": "AI Native Solutions",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/sjgant80-hub/fallestateonboard-sdk.git"
   },
-  "homepage": "https://sjgant80-hub.github.io/fallestateonboard-sdk/",
-  "publishConfig": {
-    "access": "public"
-  }
+  "homepage": "https://sjgant80-hub.github.io/fallestateonboard-sdk/"
 }

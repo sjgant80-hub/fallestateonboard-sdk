@@ -1,35 +1,24 @@
-# fallestateonboard SDK
+# fallestateonboard-sdk
 
-> Companion SDK for fallestateonboard · minted by mint-all · sovereign estate · SDK on npm · MIT-licensed · Ed25519-signed · listed on FallMarket.
+> The FallEstateOnboard checks for UK estate and letting agents as a JavaScript library: the AML risk heuristic, onboarding steps, document and Right to Rent tables, and 10 rules-based answers. MIT, no dependencies, no network.
 
-fallestateonboard SDK is a sovereign tool built by the AI-Native Solutions guild. It runs on your machine, ships with source, and never phones home.
+Live page: https://sjgant80-hub.github.io/fallestateonboard-sdk/
+Source: https://github.com/sjgant80-hub/fallestateonboard-sdk
+Install: npm install github:sjgant80-hub/fallestateonboard-sdk
+Product page: https://sjgant80-hub.github.io/fallestateonboard/
 
-## Canonical URL
+## Exports
 
-https://sjgant80-hub.github.io/fallestateonboard-sdk/
+- assessAmlRisk(client): { grade, score, reasons } for a client record. Never throws: anything that is not a record scores as an empty one.
+- getSteps(client): The onboarding steps for that client type.
+- askT0(question): The matching rules-based answer and its source, or null.
+- newClientRec({ id, ts, firmId, clientType }): A blank client record in the page's exact shape (deterministic when you pass id and ts).
+- clientDisplayName(client): "Ms Emma Clarke", or "Unnamed".
+- CLIENT_TYPES · DOC_TYPES · RTR_DOCS · HIGH_RISK_JURIS · CMP_SCHEMES · WIZ_STEPS · T0_RULES: The page's tables: client types, document types with validity days, Right to Rent documents, the high-risk nationality list, deposit schemes, steps and answers.
 
-## Category
+## Limits
 
-SDK on npm. Part of the FallMarket sovereign agent marketplace (https://sjgant80-hub.github.io/fallmarket/).
-
-## Install
-
-```
-npm install @ai-native-solutions/fallestateonboard-sdk
-```
-
-## License
-
-MIT · Copyright 2026 AI-Native Solutions
-
-## Related
-
-- FallMarket registry entry: https://sjgant80-hub.github.io/fallmarket/listing.html?id=fallestateonboard-sdk
-- Source: https://github.com/sjgant80-hub/fallestateonboard-sdk
-- FallMarket catalog: https://sjgant80-hub.github.io/fallmarket/
-- Machine-readable catalog: https://sjgant80-hub.github.io/fallmarket/listings.json
-- Owner: AI-Native Solutions · https://ai-nativesolutions.com
-
-## About AI-Native Solutions
-
-AI-Native Solutions builds sovereign single-file AI tools, MCP servers, SDKs, and HTTP APIs. All work is MIT, all is Ed25519-signed, all is discoverable via FallMarket. This tool is one entry in a 766-listing catalog.
+- The high-risk nationality list has no source on the page. UK guidance on high-risk third countries is about where a customer is established, and scoring by nationality can raise discrimination questions under the Equality Act 2010. Have your MLRO and legal adviser review this factor before relying on it.
+- The sanctions answer says to report a sanctions match to the NCA. Check the current reporting route (sanctions reporting generally goes to OFSI; suspicious activity reports go to the NCA) before you rely on that sentence.
+- The score is additive and fixed. It does not replace a risk assessment of your business or of a transaction.
+- The rules-based answers are short summaries as at November 2026; the law changes.
